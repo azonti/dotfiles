@@ -1,0 +1,10 @@
+{
+  "diagnostic.displayByAle": true,
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform"]
+    }
+  }
+}
