@@ -1,0 +1,12 @@
+[user]
+	name = Shu Takayama
+	email = syu.takayama@gmail.com
+	signingKey = 603A6216E63564908B709300576A0276D0A93647
+[fetch]
+	prune = true
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true

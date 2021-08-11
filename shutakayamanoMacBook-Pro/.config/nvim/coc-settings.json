@@ -1,0 +1,14 @@
+{
+  "diagnostic.displayByAle": true,
+  "languageserver": {
+    "cquery": {
+      "command": "clangd",
+      "filetypes": ["c", "cpp"]
+    },
+    "gopls": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    }
+  }
+}
