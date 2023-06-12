@@ -1,5 +1,8 @@
 {
   "diagnostic.displayByAle": true,
+  "go": {
+    "goplsPath": "gopls"
+  },
   "languageserver": {
     "terraform": {
       "command": "terraform-ls",
