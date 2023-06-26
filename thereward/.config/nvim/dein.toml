@@ -172,6 +172,9 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'github/copilot.vim'
+hook_add = '''
+let g:copilot_no_tab_map=1
+'''
 
 [[plugins]]
 repo = 'w0rp/ale'
@@ -179,6 +182,7 @@ hook_add = '''
   let g:ale_solidity_solc_options='--import-path=node_modules/'
   let g:ale_fixers={
     \ '*': [ 'remove_trailing_lines', 'trim_whitespace' ],
+    \ 'diff': [ ],
     \ 'go': [ 'gofmt', 'remove_trailing_lines', 'trim_whitespace' ],
     \ 'javascript': [ 'eslint', 'prettier', 'remove_trailing_lines', 'trim_whitespace' ],
     \ 'typescript': [ 'eslint', 'prettier', 'remove_trailing_lines', 'trim_whitespace' ],
@@ -203,7 +207,7 @@ hook_add = '''
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~# '\s'
   endfunction
-  inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "\<Tab>" : coc#refresh()
+  inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : exists('b:_copilot.suggestions') ? copilot#Accept() : CheckBackspace() ? "\<Tab>" : coc#refresh()
   inoremap <silent><expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 
   nmap <silent> rn <Plug>(coc-rename)
