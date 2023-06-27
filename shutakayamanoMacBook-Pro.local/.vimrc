@@ -9,6 +9,9 @@ let g:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_
 let g:config_home = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
 
 
+""" providers
+let g:python3_host_prog = system('pushd ~ > /dev/null && asdf which python3 && popd > /dev/null')[:-2]
+
 """ plugins
 if !has('nvim')
   let s:dein_dir = g:cache_home . '/vim/dein'
