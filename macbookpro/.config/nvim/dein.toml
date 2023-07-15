@@ -121,8 +121,8 @@ hook_add = '''
 
   function! LightLineFugitive()
     try
-      if &ft !~? 'vimfiler\|gundo\|vaffle' && exists('*fugitive#head')
-        let _ = fugitive#head()
+      if &ft !~? 'vimfiler\|gundo\|vaffle' && exists('*FugitiveHead')
+        let _ = FugitiveHead()
         return strlen(_) ? ' '._ : ''
       endif
     catch
