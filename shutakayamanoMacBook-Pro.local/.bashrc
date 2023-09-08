@@ -18,46 +18,69 @@ function parse_retval {
   [ $? -ne 0 ] && echo "$RED"
 }
 function parse_git {
-  branch=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-  if [ "${branch}" != "" ]; then
-    bits=`parse_git_bits`
-    if [ "${bits}" != "" ]; then
-      echo "[${branch} ${bits}]"
-    else
-      echo "[${branch}]"
-    fi
-  else
+  porcelain2branch=$(git status --porcelain=2 --branch 2> /dev/null)
+  porcelain1=$(git status --porcelain=1 2> /dev/null)
+  branch=$(parse_git_branch "${porcelain2branch}")
+  if [ "${branch}" == "" ]; then
     echo ""
+  else
+    bits=$(parse_git_bits "${porcelain2branch}" "${porcelain1}")
+    if [ "${bits}" == "" ]; then
+      echo "[${branch}]"
+    else
+      echo "[${branch} ${bits}]"
+    fi
+  fi
+}
+function parse_git_branch {
+  branch_head=$(echo "$1" | grep "^# branch.head" | cut -d " " -f 3)
+  branch_oid=$(echo "$1" | grep "^# branch.oid" | cut -d " " -f 3)
+  if [ "${branch_head}" == "(detached)" ]; then
+    echo -n "detached at ${branch_oid:0:7}"
+  else
+    echo -n "${branch_head}"
   fi
 }
 function parse_git_bits {
-  status=`git status 2>&1 | tee`
-  ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
-  diverged=`echo -n "${status}" 2> /dev/null | grep "have diverged" &> /dev/null; echo "$?"`
-  dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
-  renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
-  newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
-  deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
-  untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
-  if [ "${ahead}" == "0" ]; then
-    echo -n "|"
-  elif [ "${diverged}" == "0" ]; then
-    echo -n "Y"
+  ahead=$(echo "$1" | grep "^# branch.ab" | cut -d " " -f 3)
+  if [ ${ahead} -eq 0 ]; then
+    echo -n ""
+  else
+    behind=$(echo "$1" | grep "^# branch.ab" | cut -d " " -f 4)
+    if [ ${behind} -eq 0 ]; then
+      echo -n "|"
+    else
+      echo -n "Y"
+    fi
   fi
-  if [ "${dirty}" == "0" ]; then
+  modified_worktree=$(echo "$2" | grep "^M" | wc -l)
+  modified_index=$(echo "$2" | grep "^.M" | wc -l)
+  typechanged_worktree=$(echo "$2" | grep "^T" | wc -l)
+  typechanged_index=$(echo "$2" | grep "^.T" | wc -l)
+  added_worktree=$(echo "$2" | grep "^A" | wc -l)
+  added_index=$(echo "$2" | grep "^.A" | wc -l)
+  deleted_worktree=$(echo "$2" | grep "^D" | wc -l)
+  deleted_index=$(echo "$2" | grep "^.D" | wc -l)
+  renamed_worktree=$(echo "$2" | grep "^R" | wc -l)
+  renamed_index=$(echo "$2" | grep "^.R" | wc -l)
+  unmarged_us=$(echo "$2" | grep "^U" | wc -l)
+  unmerged_them=$(echo "$2" | grep "^.U" | wc -l)
+  if [ ${modified_worktree} -ne 0 ] || [ ${modified_index} -ne 0 ] ||
+     [ ${typechanged_worktree} -ne 0 ] || [ ${typechanged_index} -ne 0 ] ||
+     [ ${renamed_worktree} -ne 0 ] || [ ${renamed_index} -ne 0 ] ||
+     [ ${unmarged_us} -ne 0 ] || [ ${unmerged_them} -ne 0 ]; then
     echo -n "*"
-  elif [ "${renamed}" == "0" ]; then
+  elif { [ ${added_worktree} -ne 0 ] || [ ${added_index} -ne 0 ]; } &&
+       { [ ${deleted_worktree} -ne 0 ] || [ ${deleted_index} -ne 0 ]; }; then
     echo -n "*"
-  elif [ "${newfile}" == "0" ] && [ "${deleted}" == "0" ]; then
-    echo -n "*"
-  elif [ "${newfile}" == "0" ]; then
+  elif [ ${added_worktree} -ne 0 ] || [ ${added_index} -ne 0 ]; then
     echo -n "+"
-  elif [ "${deleted}" == "0" ]; then
+  elif [ ${deleted_worktree} -ne 0 ] || [ ${deleted_index} -ne 0 ]; then
     echo -n "-"
   fi
-  if [ "${untracked}" == "0" ]; then
+  untracked=$(echo "$2" | grep "^??" | wc -l)
+  if [ ${untracked} -ne 0 ]; then
     echo -n "?"
   fi
-  echo "${bits}"
 }
 PS1="\[$BOLD\`parse_retval\`\]\u@\h \w\`parse_git\`\\$\[$RESET\] "
