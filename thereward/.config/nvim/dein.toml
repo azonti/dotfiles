@@ -179,6 +179,7 @@ let g:copilot_no_tab_map=1
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
+  let g:ale_go_golangci_lint_package=1
   let g:ale_solidity_solc_options='--import-path=node_modules/'
   let g:ale_fixers={
     \ '*': [ 'remove_trailing_lines', 'trim_whitespace' ],
