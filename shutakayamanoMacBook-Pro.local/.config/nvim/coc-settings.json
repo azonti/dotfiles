@@ -10,5 +10,8 @@
       "args": ["serve"],
       "filetypes": ["terraform"]
     }
+  },
+  "volar": {
+    "enable": false
   }
 }

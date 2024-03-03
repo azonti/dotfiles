@@ -236,6 +236,7 @@ hook_add = '''
   \ 'coc-go',
   \ 'coc-tsserver',
   \ 'coc-vetur',
+  \ '@yaegassy/coc-volar',
   \ 'coc-pyright',
   \ 'coc-solidity' ]
 '''
