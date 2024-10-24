@@ -1,0 +1,35 @@
+REGEDIT4
+
+' 文字コードをCP932、改行をCR+LFで保存してください
+
+[HKEY_CURRENT_USER\Software\Wine\Fonts\Replacements]
+"MS UI Gothic"="Noto Sans CJK JP"
+
+"ＭＳ Ｐゴシック"="Noto Sans CJK JP"
+"MS PGothic"="Noto Sans CJK JP"
+
+"ＭＳ Ｐ明朝"="Noto Serif CJK JP"
+"MS PMincho"="Noto Serif CJK JP"
+
+"ＭＳ ゴシック"="Noto Sans CJK JP"
+"MS Gothic"="Noto Sans CJK JP"
+
+"ＭＳ 明朝"="Noto Serif CJK JP"
+"MS Mincho"="Noto Serif CJK JP"
+
+"Meiryo UI"="Noto Sans CJK JP"
+
+"メイリオ"="Noto Sans CJK JP"
+"Meiryo"="Noto Sans CJK JP"
+
+"Yu Gothic UI"="Noto Sans CJK JP"
+
+"游ゴシック"="Noto Sans CJK JP"
+"Yu Gothic"="Noto Sans CJK JP"
+
+"游明朝"="Noto Serif CJK JP"
+"Yu Mincho"="Noto Serif CJK JP"
+
+[HKEY_CURRENT_USER\Software\Wine\X11 Driver]
+"ClientSideWithRender"="N"
+"InputStyle"="root"
