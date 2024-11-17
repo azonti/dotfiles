@@ -105,7 +105,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             bufnr = args.buf,
             id = client.id,
             filter = function(client)
-              return client.name ~= 'ts_ls'
+              return client.name ~= 'ts_ls' and client.name ~= 'volar'
             end,
             timeout_ms = 10000,
           })
