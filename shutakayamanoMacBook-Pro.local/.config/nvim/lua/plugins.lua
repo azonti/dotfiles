@@ -132,7 +132,7 @@ return {
       null_ls.setup({
         sources = {
           null_ls.builtins.diagnostics.golangci_lint,
-          require("none-ls.diagnostics.eslint"),
+          require("none-ls.diagnostics.eslint_d"),
           require("none-ls.diagnostics.flake8"),
 
           require("none-ls.formatting.trim_whitespace").with({
@@ -147,8 +147,8 @@ return {
           }),
           null_ls.builtins.formatting.gofmt,
           null_ls.builtins.formatting.goimports,
-          require("none-ls.formatting.eslint"),
-          null_ls.builtins.formatting.prettier,
+          require("none-ls.formatting.eslint_d"),
+          null_ls.builtins.formatting.prettierd,
           null_ls.builtins.formatting.isort,
           null_ls.builtins.formatting.yapf,
           null_ls.builtins.formatting.terraform_fmt,
