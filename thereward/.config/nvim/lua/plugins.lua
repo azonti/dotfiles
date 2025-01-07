@@ -125,6 +125,9 @@ return {
       lspconfig.pyright.setup({})
       lspconfig.terraformls.setup({})
       lspconfig.solc.setup({})
+      lspconfig.elixirls.setup({
+        cmd = { "elixir-ls" },
+      })
     end,
   },
   {
