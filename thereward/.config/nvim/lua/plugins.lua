@@ -182,6 +182,7 @@ return {
       { "grr", ":Lspsaga finder<CR>", mode = "n" },
       { "gri", ":Lspsaga finder imp<CR>", mode = "n" },
       { "K", ":Lspsaga hover_doc<CR>", mode = "n" },
+      { "gre", ":Lspsaga show_line_diagnostics<CR>", mode = "n" },
       { "grn", ":Lspsaga rename<CR>", mode = "n" },
     },
     dependencies = {
