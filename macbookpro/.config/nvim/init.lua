@@ -24,8 +24,8 @@ vim.opt.runtimepath:prepend(lazy_path)
 
 
 -- edit
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = "_"
 
 vim.opt.updatetime = 300
 
