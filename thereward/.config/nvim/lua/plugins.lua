@@ -230,6 +230,46 @@ return {
     lazy = false,
   },
 
+  -- GitHub Copliot Chat
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    lazy = false,
+    dependencies = {
+      "github/copilot.vim",
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      prompts = {
+        Explain = {
+          prompt = "> /COPILOT_EXPLAIN\n\n選択されたコードについて、段落形式の文章で説明を書いてください。",
+        },
+        Review = {
+          prompt = "> /COPILOT_REVIEW\n\n選択されたコードをレビューしてください。",
+        },
+        Fix = {
+          prompt = "> /COPILOT_GENERATE\n\nこのコードに問題があります。バグを修正した状態のコードに書き直してください。",
+        },
+        Optimize = {
+          prompt = "> /COPILOT_GENERATE\n\n選択されたコードのパフォーマンスと可読性を向上させるために最適化してください。",
+        },
+        Docs = {
+          prompt = "> /COPILOT_GENERATE\n\n選択されたコードにドキュメント用のコメントを追加してください。",
+        },
+        Tests = {
+          prompt = "> /COPILOT_GENERATE\n\n私のコードに対するテストを生成してください。",
+        },
+        Commit = {
+          prompt = "> #git:staged\n\ncommitizenの規約に従い、変更のためのコミットメッセージを書いてください。タイトルは最大50文字、メッセージは72文字ごとに改行してください。全体をgitcommit言語のコードブロックで囲んでください。",
+        },
+      },
+      mappings = {
+        complete = {
+          insert = "",
+        },
+      },
+    },
+  },
+
   -- snippet engine
   {
     "hrsh7th/vim-vsnip",
