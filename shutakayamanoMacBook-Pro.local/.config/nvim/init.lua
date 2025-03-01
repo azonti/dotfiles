@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd({"VimEnter", "WinEnter"}, {
     vim.cmd([[match UnicodeSpaces /\%u180E\|\%u2000\|\%u2001\|\%u2002\|\%u2003\|\%u2004\|\%u2005\|\%u2006\|\%u2007\|\%u2008\|\%u2009\|\%u200A\|\%u2028\|\%u2029\|\%u202F\|\%u205F\|\%u3000/]])
   end,
 })
-vim.api.nvim_create_autocmd({"ColorScheme"}, {
+vim.api.nvim_create_autocmd("ColorScheme", {
   group = "MyVimrc",
   callback = function()
     vim.cmd([[highlight UnicodeSpaces cterm=underline ctermfg=0 ctermbg=1 gui=underline guifg=#000000 guibg=#800000]])

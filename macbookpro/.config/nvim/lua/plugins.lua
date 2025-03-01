@@ -32,6 +32,7 @@ return {
   -- explorer
   {
     "preservim/nerdtree",
+    cmd = "NERDTree",
     keys = {
       { "<C-n>", ":NERDTreeToggle<CR>", mode = "n" },
     },
@@ -39,7 +40,26 @@ return {
       "ryanoasis/vim-devicons",
     },
     init = function()
+      local stdin = false
+
       vim.api.nvim_create_augroup("MyVimrcNERDTree", {})
+      vim.api.nvim_create_autocmd("StdinReadPre", {
+        group = "MyVimrcNERDTree",
+        callback = function()
+          stdin = true
+        end,
+      })
+      vim.api.nvim_create_autocmd("VimEnter", {
+        group = "MyVimrcNERDTree",
+        callback = function()
+          if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv(0)) == 1 and not stdin then
+            vim.cmd([[NERDTree ]] .. vim.fn.argv(0))
+            vim.cmd([[wincmd p]])
+            vim.cmd([[enew]])
+            vim.cmd([[cd ]] .. vim.fn.argv(0))
+          end
+        end,
+      })
       vim.api.nvim_create_autocmd({"VimEnter", "BufEnter"}, {
         group = "MyVimrcNERDTree",
         callback = function()
