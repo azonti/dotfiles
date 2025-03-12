@@ -8,6 +8,6 @@ if [[ -d ~/.profile.d ]]; then
   done
 fi
 
-ulimit -n 1024
+ulimit -n 2048
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
