@@ -281,6 +281,10 @@ return {
       "hrsh7th/vim-vsnip-integ",
     },
   },
+  {
+    "hrsh7th/vim-vsnip-integ",
+    lazy = true,
+  },
 
   -- completion engine
   {
@@ -381,11 +385,24 @@ return {
     "lervag/vimtex",
     ft = "tex",
     init = function()
+      vim.g.vimtex_compiler_latexmk_engines = { _ = "-pdfdvi" }
       vim.g.vimtex_view_general_viewer = "qpdfview"
     end,
   },
   {
     "whonore/Coqtail",
     ft = "coq",
+  },
+  {
+    'Julian/lean.nvim',
+    ft = "lean",
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'nvim-lua/plenary.nvim',
+      'hrsh7th/nvim-cmp',
+    },
+    opts = {
+      mappings = true,
+    },
   },
 }
