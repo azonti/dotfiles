@@ -273,10 +273,7 @@ return {
   -- snippet engine
   {
     "hrsh7th/vim-vsnip",
-    keys = {
-      { "<C-j>", function() return vim.fn["vsnip#expandable"]() and "<Plug>(vsnip-expand)" or "<C-j>" end, mode = "i" },
-      { "<C-j>", function() return vim.fn["vsnip#expandable"]() and "<Plug>(vsnip-expand)" or "<C-j>" end, mode = "s" },
-    },
+    lazy = false,
     dependencies = {
       "hrsh7th/vim-vsnip-integ",
     },
@@ -315,6 +312,13 @@ return {
           end,
         },
         mapping = {
+          ["<C-j>"] = cmp.mapping(function(fallback)
+            if vim.fn["vsnip#expandable"]() == 1 then
+              feedkeys("<Plug>(vsnip-expand)", "")
+            else
+              fallback()
+            end
+          end, {"i", "s"}),
           ["<Tab>"] = cmp.mapping(function(fallback)
             if has_space_before() then
               fallback()
@@ -347,6 +351,7 @@ return {
           { name = "nvim_lsp" },
           { name = "buffer" },
           { name = "path" },
+          { name = "vsnip" },
         },
       })
     end,
