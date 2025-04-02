@@ -241,25 +241,28 @@ return {
     opts = {
       prompts = {
         Explain = {
-          prompt = "> /COPILOT_EXPLAIN\n\n選択されたコードについて、段落形式の文章で説明を書いてください。",
+          prompt = '選択したコードについて、段落形式のテキストで説明を書いてください。',
+          system_prompt = 'COPILOT_EXPLAIN',
         },
         Review = {
-          prompt = "> /COPILOT_REVIEW\n\n選択されたコードをレビューしてください。",
+          prompt = '選択したコードのレビューをしてください。',
+          system_prompt = 'COPILOT_REVIEW',
         },
         Fix = {
-          prompt = "> /COPILOT_GENERATE\n\nこのコードに問題があります。バグを修正した状態のコードに書き直してください。",
+          prompt = 'このコードに問題があります。問題点を特定し、修正したコードを書き直してください。何が間違っていたのか、また変更がどのように問題を解決するのかを説明してください。',
         },
         Optimize = {
-          prompt = "> /COPILOT_GENERATE\n\n選択されたコードのパフォーマンスと可読性を向上させるために最適化してください。",
+          prompt = '選択したコードのパフォーマンスと可読性を向上させるために最適化してください。最適化戦略とその変更によるメリットを説明してください。',
         },
         Docs = {
-          prompt = "> /COPILOT_GENERATE\n\n選択されたコードにドキュメント用のコメントを追加してください。",
+          prompt = '選択したコードにドキュメントコメントを追加してください。',
         },
         Tests = {
-          prompt = "> /COPILOT_GENERATE\n\n私のコードに対するテストを生成してください。",
+          prompt = '私のコードに対するテストを生成してください。',
         },
         Commit = {
-          prompt = "> #git:staged\n\ncommitizenの規約に従い、変更のためのコミットメッセージを書いてください。タイトルは最大50文字、メッセージは72文字ごとに改行してください。全体をgitcommit言語のコードブロックで囲んでください。",
+          prompt = 'Commitizenの規約に従って、変更に対するコミットメッセージを作成してください。タイトルは50文字以内に抑え、メッセージは72文字ごとに改行してください。gitcommitのコードブロック形式でフォーマットしてください。',
+          context = 'git:staged',
         },
       },
       mappings = {
