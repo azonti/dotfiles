@@ -239,6 +239,7 @@ return {
       "nvim-lua/plenary.nvim",
     },
     opts = {
+      context = 'buffers',
       prompts = {
         Explain = {
           prompt = '選択したコードについて、段落形式のテキストで説明を書いてください。',
