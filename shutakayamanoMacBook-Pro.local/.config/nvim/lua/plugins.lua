@@ -158,7 +158,9 @@ return {
 
       null_ls.setup({
         sources = {
-          null_ls.builtins.diagnostics.golangci_lint,
+          null_ls.builtins.diagnostics.golangci_lint.with({
+            timeout = 10000,
+          }),
           require("none-ls.diagnostics.eslint_d"),
           require("none-ls.diagnostics.flake8"),
 
