@@ -112,39 +112,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     lazy = false,
-    config = function()
-      local lspconfig = require("lspconfig")
-
-      lspconfig.clangd.setup({})
-      lspconfig.gopls.setup({})
-      lspconfig.ts_ls.setup({
-        init_options = {
-          plugins = {
-            {
-              name = "@vue/typescript-plugin",
-              location = "/opt/homebrew/lib/node_modules/@vue/typescript-plugin",
-              languages = {
-                "javascript",
-                "typescript",
-                "vue",
-              },
-            },
-          },
-        },
-        filetypes = {
-          "javascript",
-          "typescript",
-          "vue",
-        },
-      })
-      lspconfig.volar.setup({})
-      lspconfig.pyright.setup({})
-      lspconfig.terraformls.setup({})
-      lspconfig.solc.setup({})
-      lspconfig.elixirls.setup({
-        cmd = { "elixir-ls" },
-      })
-    end,
   },
   {
     "nvimtools/none-ls.nvim",

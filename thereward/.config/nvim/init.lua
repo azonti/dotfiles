@@ -93,6 +93,38 @@ vim.opt.smartcase = true
 
 
 -- LSP
+vim.lsp.enable('clangd')
+vim.lsp.enable('gopls')
+vim.lsp.enable('ts_ls')
+vim.lsp.config('ts_ls', {
+  init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = "/usr/lib/node_modules/@vue/typescript-plugin",
+        languages = {
+          "javascript",
+          "typescript",
+          "vue",
+        },
+      },
+    },
+  },
+  filetypes = {
+    "javascript",
+    "typescript",
+    "vue",
+  },
+})
+vim.lsp.enable('vue_ls')
+vim.lsp.enable('pyright')
+vim.lsp.enable('terraformls')
+vim.lsp.enable('solc')
+vim.lsp.enable('elixirls')
+vim.lsp.config('elixirls', {
+  cmd = { "elixir-ls" },
+})
+
 vim.api.nvim_create_autocmd('LspAttach', {
   group = "MyVimrc",
   callback = function(args)
@@ -105,7 +137,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             bufnr = args.buf,
             id = client.id,
             filter = function(client)
-              return client.name ~= 'ts_ls' and client.name ~= 'volar'
+              return client.name ~= 'ts_ls' and client.name ~= 'vue_ls'
             end,
             timeout_ms = 10000,
           })
