@@ -199,47 +199,6 @@ return {
     lazy = false,
   },
 
-  -- GitHub Copliot Chat
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    lazy = false,
-    dependencies = {
-      "github/copilot.vim",
-      "nvim-lua/plenary.nvim",
-    },
-    opts = {
-      context = 'buffers',
-      prompts = {
-        Explain = {
-          prompt = '選択されたコードの説明を、段落形式のテキストで記述してください。',
-        },
-        Review = {
-          prompt = '選択されたコードをレビューしてください。',
-        },
-        Fix = {
-          prompt = 'このコードには問題があります。問題点を特定し、修正した上でコードを書き直してください。何が問題で、あなたの変更がどのようにその問題を解決するのかを説明してください。',
-        },
-        Optimize = {
-          prompt = 'パフォーマンスと可読性を向上させるために、選択されたコードを最適化してください。あなたの最適化戦略と、変更によるメリットを説明してください。',
-        },
-        Docs = {
-          prompt = '選択されたコードにドキュメンテーションコメントを追加してください。',
-        },
-        Tests = {
-          prompt = '私のコードに対するテストを生成してください。',
-        },
-        Commit = {
-          prompt = 'commitizen規約に従って、変更内容のコミットメッセージを記述してください。タイトルは50文字未満、メッセージは72文字で折り返してください。gitcommitコードブロックとしてフォーマットしてください。',
-        },
-      },
-      mappings = {
-        complete = {
-          insert = "",
-        },
-      },
-    },
-  },
-
   -- snippet engine
   {
     "hrsh7th/vim-vsnip",
