@@ -124,6 +124,13 @@ vim.lsp.config('elixirls', {
   cmd = { "elixir-ls" },
 })
 vim.lsp.enable('elixirls')
+vim.lsp.config('copilot', {
+  cmd = {
+    vim.fn.system("pushd ~ > /dev/null && (asdf which node || which node) 2>/dev/null && popd > /dev/null"):gsub("\n$", ""),
+    vim.fn.system("pushd ~ > /dev/null && (which copilot-language-server) 2>/dev/null && popd > /dev/null"):gsub("\n$", ""),
+    '--stdio',
+  },
+})
 vim.lsp.enable('copilot')
 
 vim.api.nvim_create_autocmd('LspAttach', {
