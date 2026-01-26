@@ -167,9 +167,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
           vim.lsp.buf.format({
             bufnr = bufnr,
             id = client.id,
-            filter = function(client)
-              return client.name ~= 'ts_ls' and client.name ~= 'vue_ls'
-            end,
             timeout_ms = 10000,
           })
         end,
