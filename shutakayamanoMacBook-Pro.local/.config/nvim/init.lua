@@ -184,4 +184,16 @@ require("lazy").setup({
   spec = { { import = "plugins" } },
   checker = { enabled = true },
   rocks = { enabled = false },
+  performance = {
+    rtp = {
+      paths = { vim.fn.getcwd() .. "/.vim" },
+    },
+  },
 })
+
+
+-- repository specific
+local repo_init = vim.fn.getcwd() .. "/.vim/init.lua"
+if vim.uv.fs_stat(repo_init) then
+  dofile(repo_init)
+end
