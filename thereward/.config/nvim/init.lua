@@ -92,6 +92,19 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 
+-- plugins
+require("lazy").setup({
+  spec = { { import = "plugins" } },
+  checker = { enabled = true },
+  rocks = { enabled = false },
+  performance = {
+    rtp = {
+      paths = { vim.fn.getcwd() .. "/.vim" },
+    },
+  },
+})
+
+
 -- LSP
 vim.lsp.enable('clangd')
 vim.lsp.enable('gopls')
@@ -111,7 +124,9 @@ vim.lsp.config('ts_ls', {
   },
   filetypes = {
     "javascript",
+    "javascriprreact",
     "typescript",
+    "typescriptreact",
     "vue",
   },
 })
@@ -120,18 +135,7 @@ vim.lsp.enable('vue_ls')
 vim.lsp.enable('pyright')
 vim.lsp.enable('terraformls')
 vim.lsp.enable('solc')
-vim.lsp.config('elixirls', {
-  cmd = { "elixir-ls" },
-})
 vim.lsp.enable('elixirls')
-vim.lsp.config('copilot', {
-  cmd = {
-    vim.fn.system("pushd ~ > /dev/null && (asdf which node || which node) 2>/dev/null && popd > /dev/null"):gsub("\n$", ""),
-    vim.fn.system("pushd ~ > /dev/null && (which copilot-language-server) 2>/dev/null && popd > /dev/null"):gsub("\n$", ""),
-    '--stdio',
-  },
-})
-vim.lsp.enable('copilot')
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = "MyVimrc",
@@ -176,19 +180,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
       })
     end
   end,
-})
-
-
--- plugins
-require("lazy").setup({
-  spec = { { import = "plugins" } },
-  checker = { enabled = true },
-  rocks = { enabled = false },
-  performance = {
-    rtp = {
-      paths = { vim.fn.getcwd() .. "/.vim" },
-    },
-  },
 })
 
 
