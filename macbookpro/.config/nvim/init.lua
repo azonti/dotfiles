@@ -95,7 +95,6 @@ vim.opt.smartcase = true
 -- plugins
 require("lazy").setup({
   spec = { { import = "plugins" } },
-  checker = { enabled = true },
   rocks = { enabled = false },
   performance = {
     rtp = {
