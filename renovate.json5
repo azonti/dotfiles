@@ -8,8 +8,14 @@
     {
       customType: "regex",
       managerFilePatterns: [ "/^[^/]+/\\.config/nvim/lua/plugins\\.lua$/" ],
-      matchStrings: [ '{\\s*"(?<depName>[^"]+)",\\s*commit = "(?<currentValue>[^"]+)",' ],
+      matchStrings: [ '{\\s*"(?<depName>[^"]+)",\\s*branch = "(?<currentValue>[^"]+)",\\s*commit = "(?<currentDigest>[^"]+)"(,|\\s*})' ],
       datasourceTemplate: "github-digest",
+    },
+  ],
+  "packageRules": [
+    {
+      "matchFileNames": [ "/^[^/]+/\\.config/nvim/lua/plugins\\.lua$/" ],
+      "automerge": true,
     },
   ],
 }
