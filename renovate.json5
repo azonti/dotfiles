@@ -12,4 +12,10 @@
       datasourceTemplate: "github-digest",
     },
   ],
+  "packageRules": [
+    {
+      "matchFilenames": [ "/^[^/]+/\\.config/nvim/lua/plugins\\.lua$/" ],
+      "automerge": true,
+    },
+  ],
 }
