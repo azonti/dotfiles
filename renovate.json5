@@ -14,7 +14,7 @@
   ],
   "packageRules": [
     {
-      "matchFilenames": [ "/^[^/]+/\\.config/nvim/lua/plugins\\.lua$/" ],
+      "matchFileNames": [ "/^[^/]+/\\.config/nvim/lua/plugins\\.lua$/" ],
       "automerge": true,
     },
   ],
