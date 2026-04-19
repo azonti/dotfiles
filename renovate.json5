@@ -7,8 +7,8 @@
   customManagers: [
     {
       customType: "regex",
-      managerFilePatterns: [ "/^[^/]+/\\.config/nvim/lazy-lock\\.json$/" ],
-      matchStrings: [ '"(?<depName>[^"]+)": { "branch": "(?<currentValue>[^"]+)", "commit": "(?<currentDigest>[^"]+)" }' ],
+      managerFilePatterns: [ "/^[^/]+/\\.config/nvim/lua/plugins\\.lua$/" ],
+      matchStrings: [ '{\\s*"(?<depName>[^"]+)",\\s*branch = "(?<currentValue>[^"]+)",\\s*commit = "(?<currentDigest>[^"]+)"(,|\\s*})' ],
       datasourceTemplate: "github-digest",
     },
   ],
