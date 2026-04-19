@@ -2,7 +2,6 @@ return {
   -- colorscheme
   {
     "eldritch-theme/eldritch.nvim",
-    commit = "0415fa72c348e814a7a6cc9405593a4f812fe12f",
     lazy = false,
     priority = 1000,
     config = function()
@@ -16,7 +15,6 @@ return {
   -- libraries
   {
     "ryanoasis/vim-devicons",
-    commit = "71f239af28b7214eebb60d4ea5bd040291fb7e33",
     lazy = true,
     init = function()
       vim.g.DevIconsEnableFoldersOpenClose = 1
@@ -24,19 +22,16 @@ return {
   },
   {
     "nvim-tree/nvim-web-devicons",
-    commit = "c72328a5494b4502947a022fe69c0c47e53b6aa6",
     lazy = true,
   },
   {
     "nvim-lua/plenary.nvim",
-    commit = "74b06c6c75e4eeb3108ec01852001636d85a932b",
     lazy = true,
   },
 
   -- explorer
   {
     "preservim/nerdtree",
-    commit = "690d061b591525890f1471c6675bcb5bdc8cdff9",
     cmd = "NERDTree",
     keys = {
       { "<C-n>", ":NERDTreeToggle<CR>", mode = "n" },
@@ -81,7 +76,6 @@ return {
   -- statusline
   {
     "nvim-lualine/lualine.nvim",
-    commit = "a905eeebc4e63fdc48b5135d3bf8aea5618fb21c",
     lazy = false,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
@@ -101,7 +95,6 @@ return {
   -- Tree-sitter
   {
     "nvim-treesitter/nvim-treesitter",
-    commit = "cf12346a3414fa1b06af75c79faebe7f76df080a",
     lazy = false,
     build = ":TSUpdate",
     config = function()
@@ -118,12 +111,10 @@ return {
   -- LSP
   {
     "neovim/nvim-lspconfig",
-    commit = "4b7fbaa239c5db6b36f424a4521ca9f1a401be33",
     lazy = false,
   },
   {
     "nvimtools/none-ls.nvim",
-    commit = "899e93f9f10251d7220b188eba1b837c0ba27927",
     lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -163,7 +154,6 @@ return {
   },
   {
     "nvimtools/none-ls-extras.nvim",
-    commit = "70ec8815cdf186223af04cc5a15bc8bdface0ef0",
     lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -171,7 +161,6 @@ return {
   },
   {
     "nvimdev/lspsaga.nvim",
-    commit = "562d9724e3869ffd1801c572dd149cc9f8d0cc36",
     lazy = false,
     keys = {
       { "grci", ":Lspsaga incoming_calls<CR>", mode = "n" },
@@ -200,7 +189,6 @@ return {
   },
   {
     "j-hui/fidget.nvim",
-    commit = "889e2e96edef4e144965571d46f7a77bcc4d0ddf",
     lazy = false,
     opts = {},
   },
@@ -208,14 +196,12 @@ return {
   -- GitHub Copilot
   {
     "github/copilot.vim",
-    commit = "a12fd5672110c8aa7e3c8419e28c96943ca179be",
     lazy = false,
   },
 
   -- snippet engine
   {
     "hrsh7th/vim-vsnip",
-    commit = "9bcfabea653abdcdac584283b5097c3f8760abaa",
     lazy = false,
     dependencies = {
       "hrsh7th/vim-vsnip-integ",
@@ -223,14 +209,12 @@ return {
   },
   {
     "hrsh7th/vim-vsnip-integ",
-    commit = "c7c93934dece8315db3649bdc6898b76358a8b8d",
     lazy = true,
   },
 
   -- completion engine
   {
     "hrsh7th/nvim-cmp",
-    commit = "a1d504892f2bc56c2e79b65c6faded2fd21f3eca",
     lazy = false,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
@@ -303,7 +287,6 @@ return {
   },
   {
     "hrsh7th/cmp-nvim-lsp",
-    commit = "cbc7b02bb99fae35cb42f514762b89b5126651ef",
     lazy = true,
     dependencies = {
       "neovim/nvim-lspconfig",
@@ -311,17 +294,14 @@ return {
   },
   {
     "hrsh7th/cmp-buffer",
-    commit = "b74fab3656eea9de20a9b8116afa3cfc4ec09657",
     lazy = true,
   },
   {
     "hrsh7th/cmp-path",
-    commit = "c642487086dbd9a93160e1679a1327be111cbc25",
     lazy = true,
   },
   {
     "hrsh7th/cmp-vsnip",
-    commit = "989a8a73c44e926199bfd05fa7a516d51f2d2752",
     lazy = true,
     dependencies = {
       "hrsh7th/vim-vsnip",
@@ -331,14 +311,12 @@ return {
   -- utils
   {
     "tpope/vim-fugitive",
-    commit = "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
     lazy = false,
   },
 
   -- language specific
   {
     "lervag/vimtex",
-    commit = "9306903316c3ddd250676b7cf97c84a84c9c8f99",
     ft = "tex",
     init = function()
       vim.g.vimtex_compiler_latexmk_engines = { _ = "-pdfdvi" }
@@ -347,12 +325,10 @@ return {
   },
   {
     "whonore/Coqtail",
-    commit = "e509843fcd41e0bf507283a32fa1316b4fcf92e1",
     ft = "coq",
   },
   {
     'Julian/lean.nvim',
-    commit = "6876abd06efb6789081b9f4a3e81503ce07b3c6c",
     ft = "lean",
     dependencies = {
       'neovim/nvim-lspconfig',
