@@ -1,3 +1,3 @@
 #!/bin/bash
 
-diff -r ~ $HOSTNAME
+LANG=C.UTF-8 diff -r ~ $HOSTNAME | sed -E -e "s/: /\//" | ./check-file-sanitizer
