@@ -374,14 +374,14 @@ return {
     ft = "coq",
   },
   {
-    'Julian/lean.nvim',
+    "Julian/lean.nvim",
     branch = "main",
     commit = "6876abd06efb6789081b9f4a3e81503ce07b3c6c",
     ft = "lean",
     dependencies = {
-      'neovim/nvim-lspconfig',
-      'nvim-lua/plenary.nvim',
-      'hrsh7th/nvim-cmp',
+      "neovim/nvim-lspconfig",
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
     },
     opts = {
       mappings = true,
