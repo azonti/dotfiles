@@ -107,7 +107,7 @@ return {
   -- Tree-sitter
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
+    branch = "main",
     commit = "cf12346a3414fa1b06af75c79faebe7f76df080a",
     lazy = false,
     build = ":TSUpdate",
