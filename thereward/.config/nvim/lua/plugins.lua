@@ -119,11 +119,8 @@ return {
           local ft = vim.bo[args.buf].filetype
           local lang = vim.treesitter.language.get_lang(ft)
 
-          if vim.treesitter.query.get(lang, "highlights") then
+          if vim.treesitter.language.add(lang) then
             vim.treesitter.start(args.buf, lang)
-          end
-
-          if vim.treesitter.query.get(lang, "indents") then
             vim.bo[args.buf].indentexpr = "v:lua.require(\"nvim-treesitter\").indentexpr()"
           end
         end,
@@ -141,7 +138,7 @@ return {
           "tsx",
           "vue",
           "python",
-          "terraform",
+          "hcl",
           "solidity",
           "elixir",
       })
