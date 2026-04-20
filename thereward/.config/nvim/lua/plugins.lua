@@ -108,16 +108,42 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
-    commit = "cf12346a3414fa1b06af75c79faebe7f76df080a",
+    commit = "4916d6592ede8c07973490d9322f187e07dfefac",
     lazy = false,
     build = ":TSUpdate",
-    config = function()
-      local configs = require("nvim-treesitter.configs")
+    init = function()
+      vim.api.nvim_create_augroup("MyVimrcTreesitter", {})
+      vim.api.nvim_create_autocmd("FileType", {
+        group = "MyVimrcTreesitter",
+        callback = function(args)
+          local ft = vim.bo[args.buf].filetype
+          local lang = vim.treesitter.language.get_lang(ft)
 
-      configs.setup({
-        ensure_installed = "all",
-        highlight = { enable = true },
-        indent = { enable = true },
+          if vim.treesitter.query.get(lang, "highlights") then
+            vim.treesitter.start(args.buf, lang)
+          end
+
+          if vim.treesitter.query.get(lang, "indents") then
+            vim.bo[args.buf].indentexpr = "v:lua.require(\"nvim-treesitter\").indentexpr()"
+          end
+        end,
+      })
+    end,
+    config = function()
+      require("nvim-treesitter").install({
+          "lua",
+          "c",
+          "cpp",
+          "go",
+          "javascript",
+          "jsx",
+          "typescript",
+          "tsx",
+          "vue",
+          "python",
+          "terraform",
+          "solidity",
+          "elixir",
       })
     end,
   },
