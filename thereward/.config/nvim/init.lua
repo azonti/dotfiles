@@ -105,9 +105,9 @@ require("lazy").setup({
 
 
 -- LSP
-vim.lsp.enable('clangd')
-vim.lsp.enable('gopls')
-vim.lsp.config('ts_ls', {
+vim.lsp.enable("clangd")
+vim.lsp.enable("gopls")
+vim.lsp.config("ts_ls", {
   init_options = {
     plugins = {
       {
@@ -129,14 +129,14 @@ vim.lsp.config('ts_ls', {
     "vue",
   },
 })
-vim.lsp.enable('ts_ls')
-vim.lsp.enable('vue_ls')
-vim.lsp.enable('pyright')
-vim.lsp.enable('terraformls')
-vim.lsp.enable('solc')
-vim.lsp.enable('elixirls')
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("vue_ls")
+vim.lsp.enable("pyright")
+vim.lsp.enable("terraformls")
+vim.lsp.enable("solc")
+vim.lsp.enable("elixirls")
 
-vim.api.nvim_create_autocmd('LspAttach', {
+vim.api.nvim_create_autocmd("LspAttach", {
   group = "MyVimrc",
   callback = function(args)
     local bufnr = args.buf
@@ -146,25 +146,25 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --   vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
 
     --   vim.keymap.set(
-    --     'i',
-    --     '<Tab>',
+    --     "i",
+    --     "<Tab>",
     --     function()
     --       if not vim.lsp.inline_completion.get() then
     --         return "<Tab>"
     --       end
     --     end,
-    --     { expr = true, desc = 'LSP: accept inline completion', buffer = bufnr }
+    --     { expr = true, desc = "LSP: accept inline completion", buffer = bufnr }
     --   )
     --   vim.keymap.set(
-    --     'i',
-    --     '<S-Tab>',
+    --     "i",
+    --     "<S-Tab>",
     --     vim.lsp.inline_completion.select,
-    --     { desc = 'LSP: switch inline completion', buffer = bufnr }
+    --     { desc = "LSP: switch inline completion", buffer = bufnr }
     --   )
     -- end
 
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_formatting, bufnr) then
-      vim.api.nvim_create_autocmd('BufWritePre', {
+      vim.api.nvim_create_autocmd("BufWritePre", {
         buffer = bufnr,
         callback = function()
           vim.lsp.buf.format({
