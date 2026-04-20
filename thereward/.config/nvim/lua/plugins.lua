@@ -386,7 +386,7 @@ return {
   {
     "lervag/vimtex",
     branch = "master",
-    commit = "9306903316c3ddd250676b7cf97c84a84c9c8f99",
+    commit = "0f42a5130432d4af2e6fd21fb93a76915ff1f090",
     ft = "tex",
     init = function()
       vim.g.vimtex_compiler_latexmk_engines = { _ = "-pdfdvi" }
