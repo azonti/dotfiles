@@ -129,7 +129,8 @@ return {
     config = function()
       require("nvim-treesitter").install({
           "gitcommit",
-          "gitrebase",
+          "git_rebase",
+          "gitignore",
           "yaml",
           "bash",
           "lua",
