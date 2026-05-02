@@ -87,7 +87,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     branch = "master",
-    commit = "a905eeebc4e63fdc48b5135d3bf8aea5618fb21c",
+    commit = "131a558e13f9f28b15cd235557150ccb23f89286",
     lazy = false,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
