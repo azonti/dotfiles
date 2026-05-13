@@ -3,7 +3,7 @@ return {
   {
     "eldritch-theme/eldritch.nvim",
     branch = "master",
-    commit = "0415fa72c348e814a7a6cc9405593a4f812fe12f",
+    commit = "c9131a5a11f00a2f428f563a4eb2c4aeb680d963",
     lazy = false,
     priority = 1000,
     config = function()
