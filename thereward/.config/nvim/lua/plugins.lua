@@ -131,6 +131,7 @@ return {
           "gitcommit",
           "git_rebase",
           "gitignore",
+          "json",
           "yaml",
           "bash",
           "lua",
