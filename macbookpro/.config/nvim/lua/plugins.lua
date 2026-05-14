@@ -211,7 +211,7 @@ return {
   {
     "nvimdev/lspsaga.nvim",
     branch = "main",
-    commit = "e6c04f88836d79f2fd7e46fd170e7ee986c789d4",
+    commit = "3e33a6a6c5d379f3d4fae77fae6b53b762a0a30f",
     lazy = false,
     keys = {
       { "grci", ":Lspsaga incoming_calls<CR>", mode = "n" },
