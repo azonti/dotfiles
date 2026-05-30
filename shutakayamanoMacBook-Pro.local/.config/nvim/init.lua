@@ -131,7 +131,7 @@ vim.lsp.config("ts_ls", {
 })
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("vue_ls")
-vim.lsp.enable("pyright")
+vim.lsp.enable("pyrefly")
 vim.lsp.enable("terraformls")
 vim.lsp.enable("solc")
 vim.lsp.enable("elixirls")
