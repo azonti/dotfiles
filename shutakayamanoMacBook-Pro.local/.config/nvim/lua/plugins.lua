@@ -150,6 +150,7 @@ return {
         "hcl",
         "solidity",
         "elixir",
+        "sql",
       })
     end,
   },
