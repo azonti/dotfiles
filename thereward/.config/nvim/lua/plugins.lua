@@ -147,6 +147,7 @@ return {
         "tsx",
         "vue",
         "python",
+        "ruby",
         "hcl",
         "solidity",
         "elixir",
