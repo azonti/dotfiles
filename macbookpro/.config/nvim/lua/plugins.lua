@@ -152,6 +152,7 @@ return {
         "solidity",
         "elixir",
         "sql",
+        "dockerfile",
       })
     end,
   },
