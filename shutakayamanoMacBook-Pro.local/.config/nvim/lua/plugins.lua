@@ -247,7 +247,7 @@ return {
   {
     "j-hui/fidget.nvim",
     branch = "main",
-    commit = "82404b196e73a00b1727a91903beef5ddc319d22",
+    commit = "6f793b2bcd2d35e201c09520f698bb763220908a",
     lazy = false,
     opts = {},
   },
