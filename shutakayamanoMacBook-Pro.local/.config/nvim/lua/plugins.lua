@@ -161,7 +161,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     branch = "master",
-    commit = "4b7fbaa239c5db6b36f424a4521ca9f1a401be33",
+    commit = "e7ca2c95ba316a8b846d3f3546d407908c5c4ccb",
     lazy = false,
   },
   {
