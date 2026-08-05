@@ -1,7 +1,7 @@
 [user]
 	name = Shu Takayama
 	email = syu.takayama@gmail.com
-	signingKey = 603A6216E63564908B709300576A0276D0A93647
+	signingKey = 9B2DA63AEF9CC087BE556675ABA88E31E0128FD0
 [fetch]
 	prune = true
 [pull]
