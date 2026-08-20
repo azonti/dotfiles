@@ -403,7 +403,7 @@ return {
   {
     "whonore/Coqtail",
     branch = "main",
-    commit = "b8f12a068046670645cff583733a32296f4ca261",
+    commit = "c5ab7d8127ebfb7e18f124efdfc568e1a59c5cc1",
     ft = "coq",
   },
   {
