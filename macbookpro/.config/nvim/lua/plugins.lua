@@ -70,16 +70,6 @@ return {
           end
         end,
       })
-      vim.api.nvim_create_autocmd({"VimEnter", "BufEnter"}, {
-        group = "MyVimrcNERDTree",
-        callback = function()
-          if vim.api.nvim_get_option_value("filetype", {}) == "nerdtree" then
-            vim.cmd([[Fidget suppress true]])
-          else
-            vim.cmd([[Fidget suppress false]])
-          end
-        end,
-      })
     end,
   },
 
@@ -249,7 +239,15 @@ return {
     branch = "main",
     commit = "82404b196e73a00b1727a91903beef5ddc319d22",
     lazy = false,
-    opts = {},
+    opts = {
+      notifications = {
+        window = {
+          avoid = {
+            "nerdtree",
+          },
+        },
+      },
+    },
   },
 
   -- GitHub Copilot
