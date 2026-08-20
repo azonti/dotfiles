@@ -167,7 +167,7 @@ return {
   {
     "nvimtools/none-ls.nvim",
     branch = "main",
-    commit = "01f8e62ea11603e59ad9ff7afcfa94fd183f76d6",
+    commit = "c4b82bb63b13856ba4d6b971b7aad3bb38fc6fe2",
     lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
