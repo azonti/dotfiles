@@ -409,7 +409,7 @@ return {
   {
     "Julian/lean.nvim",
     branch = "main",
-    commit = "6876abd06efb6789081b9f4a3e81503ce07b3c6c",
+    commit = "3d8027a96ada0fe43bdd01403e1bd4a09d175448",
     ft = "lean",
     dependencies = {
       "neovim/nvim-lspconfig",
