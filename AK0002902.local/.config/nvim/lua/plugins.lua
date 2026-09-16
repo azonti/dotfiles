@@ -27,7 +27,7 @@ return {
   {
     "nvim-tree/nvim-web-devicons",
     branch = "master",
-    commit = "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
+    commit = "5f032a85be210cd1c6ac98861eb3b187ff3bd5eb",
     lazy = true,
   },
   {
