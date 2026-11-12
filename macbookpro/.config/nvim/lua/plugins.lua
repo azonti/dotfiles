@@ -353,7 +353,7 @@ return {
   {
     "hrsh7th/cmp-nvim-lsp",
     branch = "main",
-    commit = "cbc7b02bb99fae35cb42f514762b89b5126651ef",
+    commit = "cd4ee08a988deb47ac3726f418fb27fe1a95729d",
     lazy = true,
     dependencies = {
       "neovim/nvim-lspconfig",
