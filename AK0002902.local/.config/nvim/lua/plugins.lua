@@ -279,7 +279,7 @@ return {
   {
     "hrsh7th/nvim-cmp",
     branch = "main",
-    commit = "2ffe79f1f021def8dd1fcd81deb16f1bb0d989f3",
+    commit = "fe29aba4117227a6df637bc41e4b4fb4e98864a0",
     lazy = false,
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
